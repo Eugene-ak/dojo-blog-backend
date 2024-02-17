@@ -3,7 +3,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import dotenv from "dotenv";
-
+import cors from "cors";
 import indexRouter from "./routes/index.js";
 // import usersRouter from "./routes/users.js";
 import mongoose from "mongoose";
@@ -16,6 +16,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors({ origin: "*" }));
 
 app.use('/blogs', indexRouter);
 // app.use('/users', usersRouter);
